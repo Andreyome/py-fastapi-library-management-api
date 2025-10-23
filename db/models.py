@@ -7,7 +7,7 @@ from db.database import Base
 class Author(Base):
     __tablename__ = 'author'
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    name = Column(String, unique=True)
     bio = Column(String)
 
 

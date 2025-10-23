@@ -51,10 +51,10 @@ def create_book(book: schemas.BookCreate, db: Session = Depends(get_db)):
 @app.get("/books/", response_model=list[schemas.Book])
 def get_books(
         limit: int = 100,
-        offset: int = 0,
+        skip: int = 0,
         db: Session = Depends(get_db)
 ):
-    return crud.get_book_list(db, limit, offset)
+    return crud.get_book_list(db, skip, limit)
 
 
 @app.get("/book/{author_id}/", response_model=list[schemas.Book])

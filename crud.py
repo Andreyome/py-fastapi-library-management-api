@@ -67,11 +67,11 @@ def filter_book(
         db: Session,
         author_id: int,
 ):
-    return db.query(models.Book).filter(models.Book.author_id == author_id)
+    return db.query(models.Book).filter(models.Book.author_id == author_id).all()
 
 
 def get_author_by_name(
         db: Session,
         author_name: str,
 ):
-    return db.query(models.Author).filter(models.Author.name == author_name)
+    return db.query(models.Author).filter(models.Author.name == author_name).first()
