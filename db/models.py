@@ -10,6 +10,8 @@ class Author(Base):
     name = Column(String, unique=True)
     bio = Column(String)
 
+    books = relationship("Book", backref="author")
+
 
 class Book(Base):
     __tablename__ = 'book'
